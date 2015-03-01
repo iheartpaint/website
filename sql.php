@@ -4,4 +4,5 @@
 		$query = $_GET['query'];
 		$result = sqlsrv_query($connection, $query);
 		echo $result;
+		var_dump(sqlsrv_errors(SQLSRV_ERR_ALL));
 ?>
