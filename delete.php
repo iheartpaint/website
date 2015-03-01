@@ -3,7 +3,7 @@
 		$connection = sqlsrv_connect('hackdfw.database.windows.net', $connectionInfo);
 		if(!is_resource($connection)){ echo 'Could not connect: '; print_r(sqlsrv_errors(SQLSRV_ERR_ALL)); }
 		$id = $_GET['id'];
-		$query = "DELETE FROM Colors WHERE id = <? echo $id; ?>";
+		$query = "DELETE FROM Colors WHERE id = $id";
 		var_dump($query);
 		$result = sqlsrv_query($connection, $query);
 		//header('Location: http://iheartpaint.azurewebsites.net/');
