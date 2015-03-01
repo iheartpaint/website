@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>I Heart Paint</title>
+	<title>I ❤ Paint</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
