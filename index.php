@@ -60,7 +60,7 @@
 			        <span class="icon-bar"></span>
 			        <span class="icon-bar"></span>
 			      </button>
-			      <a class="navbar-brand" href="#">I ❤ Paint</a>
+			      <a class="navbar-brand" href="#">I Heart Paint</a>
 			    </div>
 
 			</div>
