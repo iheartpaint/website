@@ -15,6 +15,29 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Brightness"
+            android:id="@+id/brightnessTextView"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="25dp" />
+
+        <SeekBar
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/brightnessSeekBar"
+            android:layout_gravity="center"
+            android:max="255"
+            android:progress="255" />
+    </LinearLayout>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
