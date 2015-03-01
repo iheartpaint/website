@@ -1,23 +1,3 @@
-<?php 
-	$servername = "";
-	$username = "";
-	$password = "";
-	$dbname = "";
-
-	$connection = new mysqli($servername, $username, $password, $dbname);
-
-	$query = "SELECT * FROM colors";
-	$result = mysqli_query($connection, $query);
-
-	if (mysqli_num_rows($result) > 0)
-	{
-		while($row = mysqli_fetch_row($result))
-		{
-			
-		}
-	}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,24 +8,26 @@
 	<script type="text/javascript" src="js/ntc.js"></script>
 
 	<script>
-		console.log("Use addColor(string) to add a color and initRandomData(int) to generate random data.");
-		var fired = false;
-		function initRandomData(numColors){
-			for(var i = 0; i < numColors; i++){
-				var colorToAdd = Math.floor(Math.random()*888888 + 111111);
-				console.log("Adding color #" + colorToAdd + "...");
-				addColor(colorToAdd.toString());
-				console.log("Done!");
+<?php
+		$connectionInfo = array("Database"=>"iheartpaint", "UID"=>"iheartpaint@hackdfw", "PWD"=>"ilike2butts!");
+		$connection = sqlsrv_connect('hackdfw.database.windows.net', $connectionInfo);
+		$query = "SELECT * FROM Colors";
+		$result = sqlsrv_query($connection, $query);
+		var_dump($result);
+		if (sqlsrv_num_rows($result) > 0)
+		{
+			while($array = sqlsrv_fetch_array($result))
+			{
+?>
+				function addColor(hexVal)
+				{
+					var color = ntc.name(hexVal);
+					$(".color-list").append("<div class='col-md-4 color'><div class='color-square' style='background-color:" + color[0] + "'></div><h3 class='color-name'>"+ color[1]+"</h3> <div class='row'><div class='col-md-6'><div class='order btn btn-default'>Order</div></div><div class='col-md-6'><div class='delete btn btn-default'>Delete</div></div></div></div>");
+				}
+<?php
 			}
-			$(".delete").click(function(){
-				$(this).parent().parent().parent().remove();	
-			});		
-			console.log("Added all colors!");
 		}
-		function addColor(hexVal){
-			var color = ntc.name(hexVal);
-			$(".color-list").append("<div class='col-md-4 color'><div class='color-square' style='background-color:" + color[0] + "'></div><h3 class='color-name'>"+ color[1]+"</h3> <div class='row'><div class='col-md-6'><div class='order btn btn-default'>Order</div></div><div class='col-md-6'><div class='delete btn btn-default'>Delete</div></div></div></div>");
-		}
+?>
 	</script>
 
 	<style>
