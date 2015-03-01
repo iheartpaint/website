@@ -1,0 +1,39 @@
+package hackdfw.androidapp;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.TextView;
+
+import com.ilumi.sdk.IlumiPacking;
+import com.ilumi.sdk.IlumiSDK;
+import com.ilumi.sdk.callbacks.IsSuccessCallBack;
+
+
+public class Colorscreen extends Activity {
+
+    private byte[] macAddressBytes;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_colorscreen);
+
+        macAddressBytes = getIntent().getByteArrayExtra("macAddressBytes");
+
+        IlumiSDK.sharedManager().turnOn(macAddressBytes);
+
+        Button randomButton = (Button) findViewById( R.id.randomColorButton );
+        randomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IlumiSDK.sharedManager().setRandomColor(macAddressBytes);
+            }
+        });
+    }
+}
