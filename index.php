@@ -9,6 +9,7 @@
 
 	<script>
 <?php
+		echo "made it";
 		$connection = mssql_connect("hackdfw.database.windows.net", "iheartpaint@hackdfw", "ilike2butts!", "new Link=False");
 		if (mssql_select_db("iheartpaint", $connection))
 		{
