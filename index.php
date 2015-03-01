@@ -9,28 +9,27 @@
 
 	<script>
 <?php
-		$connection = mssql_connect("Server=tcp:hackdfw.database.windows.net; Database=iheartpaint; User ID=iheartpaint@hackdfw; Password=ilike2butts!; Trusted_Connection=False; Encrypt=True;");
+		$connection = mssql_connect("hackdfw.database.windows.net", "iheartpaint@hackdfw", "ilike2butts!", "new Link=False");
+		if (mssql_select_db("iheartpaint", $connection))
+		{
+			$query = "SELECT * FROM colors";
+			$result = mssql_query($connection, $query);
 
-		$query = "CREATE TABLE Colors
-		(
-			Color varchar(6)
-		);";
-		$result = mssql_query($connection, $query);
-
-// 		if (mssql_num_rows($result) > 0)
-// 		{
-// 			while($row = mssql_fetch_row($result))
-// 			{
-// ?>
-// 				function addColor(hexVal)
-// 				{
-// 					var color = ntc.name(hexVal);
-// 					$(".color-list").append("<div class='col-md-4 color'><div class='color-square' style='background-color:" + color[0] + "'></div><h3 class='color-name'>"+ color[1]+"</h3> <div class='row'><div class='col-md-6'><div class='order btn btn-default'>Order</div></div><div class='col-md-6'><div class='delete btn btn-default'>Delete</div></div></div></div>");
-// 				}
-// <?php
-// 			}
-// 		}
-//?>
+			if (mssql_num_rows($result) > 0)
+			{
+				while($row = mssql_fetch_row($result))
+				{
+?>
+					function addColor(hexVal)
+					{
+						var color = ntc.name(hexVal);
+						$(".color-list").append("<div class='col-md-4 color'><div class='color-square' style='background-color:" + color[0] + "'></div><h3 class='color-name'>"+ color[1]+"</h3> <div class='row'><div class='col-md-6'><div class='order btn btn-default'>Order</div></div><div class='col-md-6'><div class='delete btn btn-default'>Delete</div></div></div></div>");
+					}
+<?php
+				}
+			}
+		}
+?>
 	</script>
 
 	<style>
