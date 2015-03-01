@@ -44,6 +44,8 @@ public class MainActivity extends ActionBarActivity implements IlumiSDKDelegate 
 
                 byte[] macAddressBytes = ilumiArrayAdaptor.getItem(position);
 
+                //TODO add stuff to launch the other activity
+        /*
                 Intent ilumiControlScreen = new Intent(getApplicationContext(), IlumiActivity.class);
 
                 Bundle bundle = new Bundle();
@@ -52,6 +54,7 @@ public class MainActivity extends ActionBarActivity implements IlumiSDKDelegate 
                 ilumiControlScreen.putExtras(bundle);
 
                 startActivityForResult(ilumiControlScreen, ILUMI_ACTIVITY);
+                */
             }
         });
 
@@ -59,27 +62,7 @@ public class MainActivity extends ActionBarActivity implements IlumiSDKDelegate 
         IlumiSDK.sharedManager().startSearchIlumi();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public void didFindiLumi(final byte[] macAddress, final boolean isCommissioned, final int iLumiType) {
