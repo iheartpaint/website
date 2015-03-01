@@ -9,8 +9,8 @@
 
 	<script>
 <?php
-		echo "made it";
 		$connection = mssql_connect("hackdfw.database.windows.net", "iheartpaint@hackdfw", "ilike2butts!", "new Link=False");
+		echo "made it here";
 		if (mssql_select_db("iheartpaint", $connection))
 		{
 			$query = "SELECT * FROM colors";
