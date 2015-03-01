@@ -11,7 +11,6 @@
 <?php
 		$connectionInfo = array("Database"=>"iheartpaint", "UID"=>"iheartpaint@hackdfw", "PWD"=>"ilike2butts!");
 		$connection = sqlsrv_connect('hackdfw.database.windows.net', $connectionInfo);
-		echo "made it here";
 		$query = "SELECT * FROM colors";
 		$result = sqlsrv_query($connection, $query);
 		if (sqlsrv_num_rows($result) > 0)
