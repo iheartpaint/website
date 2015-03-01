@@ -9,7 +9,7 @@
 
 	<script>
 <?php
-		$connectionInfo = array("Database"=>"iheartpaint", "UID"=>"iheartpaint@hackdfw", "PWD"=>"ilike2butts!");
+		$connectionInfo = array("Database"=>"iheartpaint", "UID"=>"hackdfw@hackdfw", "PWD"=>"ilike2butts!");
 		$connection = sqlsrv_connect('hackdfw.database.windows.net', $connectionInfo);
 		if(!is_resource($connection)){ echo 'Could not connect: '; var_dump(sqlsrv_errors(SQLSRV_ERR_ALL)); }
 		$query = "SELECT id,color FROM Colors";
