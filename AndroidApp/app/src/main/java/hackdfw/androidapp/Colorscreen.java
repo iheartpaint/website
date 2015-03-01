@@ -33,5 +33,14 @@ public class Colorscreen extends Activity {
                 IlumiSDK.sharedManager().setRandomColor(macAddressBytes);
             }
         });
+
+        Button colorButton = (Button) findViewById(R.id.setColorButton);
+        final IlumiSDK.IlumiColor testColor = new IlumiSDK.IlumiColor(0xFF, 0, 0, 0, 0xFF);
+        colorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IlumiSDK.sharedManager().setColor(macAddressBytes, testColor);
+            }
+        });
     }
 }

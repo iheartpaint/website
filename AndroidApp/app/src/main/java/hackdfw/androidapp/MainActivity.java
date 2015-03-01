@@ -44,7 +44,6 @@ public class MainActivity extends ActionBarActivity implements IlumiSDKDelegate 
 
                 byte[] macAddressBytes = ilumiArrayAdaptor.getItem(position);
 
-                //TODO add stuff to launch the other activity
                 Intent launchColorScreen = new Intent(getApplicationContext(), Colorscreen.class);
 
                 Bundle bundle = new Bundle();
