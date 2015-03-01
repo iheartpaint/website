@@ -17,6 +17,7 @@
 		{
 			while($array = sqlsrv_fetch_array($result))
 			{
+				echo "poop";
 ?>
 				function addColor(hexVal)
 				{
