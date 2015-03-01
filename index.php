@@ -13,7 +13,7 @@
 		$connection = sqlsrv_connect('hackdfw.database.windows.net', $connectionInfo);
 		$query = "SELECT id,color FROM Colors";
 		$result = sqlsrv_query($connection, $query);
-		if( $stmt === false) {
+		if( $result === false) {
 			print_r( sqlsrv_errors(), true);
 		}
 		var_dump($result);
