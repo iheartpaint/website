@@ -5,5 +5,5 @@
 		$query = "DELETE FROM Colors WHERE (id = $_GET['id'])";
 		$result = sqlsrv_query($connection, $query);
 		var_dump($result);
-		//header('Location: http://iheartpaint.azurewebsites.net/');
+		header('Location: http://iheartpaint.azurewebsites.net/');
 ?>
