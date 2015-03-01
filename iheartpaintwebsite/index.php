@@ -1,3 +1,23 @@
+<?php 
+	$servername = "";
+	$username = "";
+	$password = "";
+	$dbname = "";
+
+	$connection = new mysqli($servername, $username, $password, $dbname);
+
+	$query = "SELECT * FROM colors";
+	$result = mysqli_query($connection, $query);
+
+	if (mysqli_num_rows($result) > 0)
+	{
+		while($row = mysqli_fetch_row($result))
+		{
+			
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
