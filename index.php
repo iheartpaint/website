@@ -11,22 +11,19 @@
 <?php
 		$connectionInfo = array("Database"=>"iheartpaint", "UID"=>"hackdfw@hackdfw", "PWD"=>"ilike2butts!");
 		$connection = sqlsrv_connect('hackdfw.database.windows.net', $connectionInfo);
-		if(!is_resource($connection)){ echo 'Could not connect: '; var_dump(sqlsrv_errors(SQLSRV_ERR_ALL)); }
+		if(!is_resource($connection)){ echo 'Could not connect: '; print_r(sqlsrv_errors(SQLSRV_ERR_ALL)); }
 		$query = "SELECT id,color FROM Colors";
 		$result = sqlsrv_query($connection, $query);
 		if( $result === false) {
-			print_r( sqlsrv_errors(), true);
+			print_r( sqlsrv_errors(SQLSRV_ERR_ALL));
 		}
-		if (sqlsrv_num_rows($result) > 0)
+		else
 		{
 			while($array = sqlsrv_fetch_array($result))
 			{
 ?>
-				function addColor(hexVal)
-				{
-					var color = ntc.name(hexVal);
-					$(".color-list").append("<div class='col-md-4 color'><div class='color-square' style='background-color:" + color[0] + "'></div><h3 class='color-name'>"+ color[1]+"</h3> <div class='row'><div class='col-md-6'><div class='order btn btn-default'>Order</div></div><div class='col-md-6'><div class='delete btn btn-default'>Delete</div></div></div></div>");
-				}
+				var color = ntc.name('<? echo $array[1]; ?>');
+				$(".color-list").append("<div class='col-md-4 color'><div class='color-square' style='background-color:" + color[0] + "'></div><h3 class='color-name'>"+ color[1]+"</h3> <div class='row'><div class='col-md-6'><div class='order btn btn-default'>Order</div></div><div class='col-md-6'><div class='delete btn btn-default'>Delete</div></div></div></div>");
 <?php
 			}
 		}
