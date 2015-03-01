@@ -23,7 +23,7 @@ public class MainActivity extends ActionBarActivity implements IlumiSDKDelegate 
     private IlumiArrayAdapter ilumiArrayAdaptor;
     private ArrayList<byte[]> ilumi = new ArrayList<byte[]>();
 
-    private final int ILUMI_ACTIVITY = 1;
+    private final int COLORSCREEN_ACTIVITY = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,14 @@ public class MainActivity extends ActionBarActivity implements IlumiSDKDelegate 
                 byte[] macAddressBytes = ilumiArrayAdaptor.getItem(position);
 
                 //TODO add stuff to launch the other activity
+                Intent launchColorScreen = new Intent(getApplicationContext(), Colorscreen.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putByteArray("macAddressBytes", macAddressBytes);
+                bundle.putString("macAddressString", macAddressTextView.getText().toString());
+                launchColorScreen.putExtras(bundle);
+
+                startActivityForResult(launchColorScreen, COLORSCREEN_ACTIVITY);
         /*
                 Intent ilumiControlScreen = new Intent(getApplicationContext(), IlumiActivity.class);
 
@@ -54,7 +62,7 @@ public class MainActivity extends ActionBarActivity implements IlumiSDKDelegate 
                 ilumiControlScreen.putExtras(bundle);
 
                 startActivityForResult(ilumiControlScreen, ILUMI_ACTIVITY);
-                */
+*/
             }
         });
 
