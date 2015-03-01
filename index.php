@@ -11,12 +11,12 @@
 <?php
 		$connectionInfo = array("Database"=>"iheartpaint", "UID"=>"iheartpaint@hackdfw", "PWD"=>"ilike2butts!");
 		$connection = sqlsrv_connect('hackdfw.database.windows.net', $connectionInfo);
+		if(!is_resource($connection)){ echo 'Could not connect: '; var_dump(sqlsrv_errors(SQLSRV_ERR_ALL)); }
 		$query = "SELECT id,color FROM Colors";
 		$result = sqlsrv_query($connection, $query);
 		if( $result === false) {
 			print_r( sqlsrv_errors(), true);
 		}
-		var_dump($result);
 		if (sqlsrv_num_rows($result) > 0)
 		{
 			while($array = sqlsrv_fetch_array($result))
