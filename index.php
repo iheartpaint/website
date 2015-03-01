@@ -79,7 +79,7 @@
 ?>
 					<script type="text/javascript">
 					var color = ntc.name("#<? echo $array[1]; ?>");
-					$(".color-list").append("<div class='col-md-4 color'><div class='color-square' style='background-color:" + color[0] + "'></div><h3 class='color-name'>" + color[1] + "</h3> <div class='row'><div class='col-md-6'><div class='order btn btn-default'>Order</div></div><div class='col-md-6'><a href='/delete.php?id=<? echo $array[0]; ?>'><div class='delete btn btn-default'>Delete</div></a></div></div></div>");
+					$(".color-list").append("<div class='col-md-4 color'><div class='color-square' style='background-color:" + color[0] + "'></div><h3 class='color-name'>" + color[1] + "</h3> <div class='row'><div class='col-md-6'><a href='http://www.behr.com/consumer/colors/paint#'><div class='order btn btn-default'>Order</div></a></div><div class='col-md-6'><a href='/delete.php?id=<? echo $array[0]; ?>'><div class='delete btn btn-default'>Delete</div></a></div></div></div>");
 					</script>
 <?php
 				}
