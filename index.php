@@ -13,11 +13,11 @@
 		$connection = sqlsrv_connect('hackdfw.database.windows.net', $connectionInfo);
 		$query = "SELECT * FROM colors";
 		$result = sqlsrv_query($connection, $query);
+		var_dump($result);
 		if (sqlsrv_num_rows($result) > 0)
 		{
 			while($array = sqlsrv_fetch_array($result))
 			{
-				echo "poop";
 ?>
 				function addColor(hexVal)
 				{
