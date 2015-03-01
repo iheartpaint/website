@@ -4,5 +4,5 @@
 		if(!is_resource($connection)){ echo 'Could not connect: '; print_r(sqlsrv_errors(SQLSRV_ERR_ALL)); }
 		$query = "DELETE FROM Colors WHERE (id = $_GET['id'])";
 		$result = sqlsrv_query($connection, $query);
-		header('Location: http://iheartpaint.azurewebsites.net/');
+		//header('Location: http://iheartpaint.azurewebsites.net/');
 ?>
